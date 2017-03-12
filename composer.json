@@ -1,0 +1,24 @@
+{
+	"name": "gilbertsoft/gswarranty",
+	"type": "typo3-cms-extension",
+	"description": "GS Warranty is for internal use only!",
+	"homepage": "https://github.com/gilbertsoft/typo3-gswarranty",
+	"license": ["GPL-3.0+"],
+	"keywords": ["TYPO3 CMS", "Gilbertsoft"],
+	"support": {
+		"issues": "https://github.com/gilbertsoft/typo3-gswarranty/issues"
+	},
+	"require": {
+		"typo3/cms-core": "^7.6.0 || ^8.6.0",
+		"typo3/cms-t3skin": "^7.6.0 || ^8.6.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Gilbertsoft\\Warranty\\": "Classes"
+		}
+	},
+	"replace": {
+		"gswarranty": "self.version",
+		"typo3-ter/gswarranty": "self.version"
+	}
+}
