@@ -18,7 +18,7 @@ call_user_func(
 			/**
 			 * Configure TBE_STYLES (TYPO3 = 7)
 			 */
-			$GLOBALS['TBE_STYLES']['logo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey) . 'Resources/Public/Images/Backend/TopBarLogo@2x.png';
+			$GLOBALS['TBE_STYLES']['logo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey) . 'Resources/Public/Images/Backend/gilbertsoft-t3-topbar.png';
 
 			/**
 			 * Configure Backend Extension
@@ -27,10 +27,10 @@ call_user_func(
 				$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']);
 			}
 			// Login Logo (TYPO3 >= 7)
-			$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['loginLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/LoginLogo.png';
+			$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['loginLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-login.png';
 
 			// Backend Logo (TYPO3 >= 8)
-			$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['backendLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/TopBarLogo@2x.png';
+			$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['backendLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-topbar.png';
 
 			if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'])) {
 				$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']);
