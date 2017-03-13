@@ -10,7 +10,7 @@
 	},
 	"require": {
 		"typo3/cms-core": "^7.6.0 || ^8.6.0",
-		"typo3/cms-backend": "^7.6.0 || ^8.6.0"
+		"typo3/cms-backend": "^7.6.0 || ^8.6.0",
 		"typo3/cms-t3skin": "^7.6.0 || ^8.6.0"
 	},
 	"autoload": {
