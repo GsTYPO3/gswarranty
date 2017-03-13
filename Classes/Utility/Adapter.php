@@ -116,6 +116,8 @@ class Adapter
 		// Login Logo (TYPO3 >= 7.6)
 		if (static::isCompatVersion('7.6')) {
 			$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['loginLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-login.png';
+			$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['loginHighlightColor'] = '#004A99';
+			$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['loginBackgroundImage'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-background.jpg';
 		}
 
 		// Backend Logo (TYPO3 >= 8.6)
