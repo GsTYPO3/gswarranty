@@ -99,16 +99,12 @@ class Adapter
 	 */
 	protected static function adaptLogos($extKey)
 	{
-		/**
-		 * Configure TBE_STYLES (TYPO3 = 7.6)
-		 */
+		// Configure TBE_STYLES (TYPO3 = 7.6)
 		if (static::isVersion('7.6')) {
 			$GLOBALS['TBE_STYLES']['logo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey) . 'Resources/Public/Images/Backend/gilbertsoft-t3-topbar@2x.png';
 		}
 
-		/**
-		 * Configure Backend Extension
-		 */
+		// Configure Backend Extension
 		if (!is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'])) {
 			$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']);
 		}
