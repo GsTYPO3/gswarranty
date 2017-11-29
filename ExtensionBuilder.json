@@ -2,7 +2,7 @@
     "modules": [],
     "properties": {
         "backendModules": [],
-        "description": "GS Warranty is for internal use only!",
+        "description": "GS Warranty adapts the TYPO3 backend logos and warranty data and registers a new toolbar item. Feel free to use this extension as base for your own work.",
         "emConf": {
             "category": "be",
             "custom_category": "",

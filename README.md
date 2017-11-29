@@ -5,4 +5,4 @@
 GS Warranty TYPO3 extension
 ===========================
 
-GS Warranty is for internal use only!
+GS Warranty adapts the TYPO3 backend logos and warranty data and registers a new toolbar item. Feel free to use this extension as base for your own work.
