@@ -120,8 +120,8 @@ class Adapter
 			$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['loginBackgroundImage'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-background.jpg';
 		}
 
-		// Backend Logo (TYPO3 >= 8.6)
-		if (static::isCompatVersion('8.6')) {
+		// Backend Logo (TYPO3 >= 8.7)
+		if (static::isCompatVersion('8.7')) {
 			$GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['backendLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-topbar@2x.png';
 		}
 
@@ -132,7 +132,7 @@ class Adapter
 
 	protected static function registerToolbarItems($extKey)
 	{
-		$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems'][$extKey] = \Gilbertsoft\Warranty\Toolbar\ToolbarItem::class;
+		$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems'][1511960569] = \Gilbertsoft\Warranty\Backend\ToolbarItems\WarrantyLinkToolbarItem::class;
 	}
 
 	/**
