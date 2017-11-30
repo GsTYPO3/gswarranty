@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the GS Warranty TYPO3 Extension.
+ * This file is part of the "GS Warranty" Extension for TYPO3 CMS.
  *
  * Copyright (C) 2017 by Gilbertsoft (gilbertsoft.org)
  *
@@ -34,24 +34,24 @@ namespace Gilbertsoft\Warranty\Utility;
  */
 class Provider
 {
-	/**
-	 * @var string
-	 */
-	protected static $name = null;
+    /**
+     * @var string
+     */
+    protected static $name = null;
 
-	/**
-	 * Returns the provider name loaded by getenv
-	 *
-	 * @return string
-	 * @api
-	 */
-	public static function getName()
-	{
-		if (is_null(static::$name)) {
-			static::$name = getenv('TYPO3_PROVIDER') ?: (getenv('REDIRECT_TYPO3_PROVIDER') ?: '');
-		}
-		return static::$name;
-	}
+    /**
+     * Returns the provider name loaded by getenv
+     *
+     * @return string
+     * @api
+     */
+    public static function getName()
+    {
+        if (is_null(static::$name)) {
+            static::$name = getenv('TYPO3_PROVIDER') ?: (getenv('REDIRECT_TYPO3_PROVIDER') ?: '');
+        }
+        return static::$name;
+    }
 
     /**
      * Returns TRUE if the provider is Gilbertsoft

@@ -12,7 +12,7 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * For the full license information, please read the LICENSE file that
@@ -27,17 +27,17 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'be',
     'author' => 'Simon Gilli',
     'author_email' => 'typo3@gilbertsoft.org',
-	'author_company' => 'Gilbertsoft',
-	'shy' => '',
-	'priority' => '',
-	'module' => '',
+    'author_company' => 'Gilbertsoft',
+    'shy' => '',
+    'priority' => '',
+    'module' => '',
     'state' => 'stable',
     'internal' => '',
     'uploadfolder' => '0',
     'createDirs' => '',
-	'modify_tables' => '',
+    'modify_tables' => '',
     'clearCacheOnLoad' => 0,
-	'lockType' => '',
+    'lockType' => '',
     'version' => '8.7.0',
     'constraints' => [
         'depends' => [
@@ -48,14 +48,14 @@ $EM_CONF[$_EXTKEY] = [
             'bootstrap_package' => '7.0.0-0.0.0',
         ],
     ],
-	'autoload' => [
-		'psr-4' => [
-			'Gilbertsoft\\Warranty\\' => 'Classes',
-		],
-	],
-	'autoload-dev' => [
-		'psr-4' => [
-			'Gilbertsoft\\Warranty\\Tests\\' => 'Tests',
-		],
-	],
+    'autoload' => [
+        'psr-4' => [
+            'Gilbertsoft\\Warranty\\' => 'Classes',
+        ],
+    ],
+    'autoload-dev' => [
+        'psr-4' => [
+            'Gilbertsoft\\Warranty\\Tests\\' => 'Tests',
+        ],
+    ],
 ];
