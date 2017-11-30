@@ -97,11 +97,21 @@ class WarrantyLinkToolbarItem implements ToolbarItemInterface
      * @param string $filename Which templateFile should be used.
      * @return StandaloneView
      */
-    protected function getFluidTemplateObject(string $filename): StandaloneView
+    protected function getFluidTemplateObject($filename)
     {
         $view = GeneralUtility::makeInstance(StandaloneView::class);
         $view->setLayoutRootPaths(['EXT:backend/Resources/Private/Layouts']);
-        $view->setPartialRootPaths(['EXT:backend/Resources/Private/Partials/ToolbarItems']);
+        if (\Gilbertsoft\Warranty\Utility\Adapter::isCompatVersion('8.7')) {
+            $view->setPartialRootPaths(['EXT:backend/Resources/Private/Partials/ToolbarItems']);
+            $view->assignMultiple([
+                    'iconSize'  => 'default',
+                ]);
+        } else {
+            $view->setPartialRootPaths(['EXT:gswarranty/Resources/Private/Partials/ToolbarItems']);
+            $view->assignMultiple([
+                    'iconSize'  => 'small',
+                ]);
+        }
         $view->setTemplateRootPaths(['EXT:gswarranty/Resources/Private/Templates/ToolbarItems']);
         $view->setTemplate($filename);
 

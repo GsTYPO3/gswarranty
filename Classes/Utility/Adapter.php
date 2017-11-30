@@ -64,7 +64,7 @@ class Adapter
      * @return bool Returns TRUE if this setup is compatible with the provided version number
      * @todo Still needs a function to convert versions to branches
      */
-    protected static function isVersion($branchNumberStr)
+    public static function isVersion($branchNumberStr)
     {
         return (static::getTypo3Version() == \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($branchNumberStr));
     }
@@ -77,7 +77,7 @@ class Adapter
      * @return bool Returns TRUE if this setup is compatible with the provided version number
      * @todo Still needs a function to convert versions to branches
      */
-    protected static function isCompatVersion($branchNumberStr)
+    public static function isCompatVersion($branchNumberStr)
     {
         return static::getTypo3Version() >= \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($branchNumberStr);
     }
