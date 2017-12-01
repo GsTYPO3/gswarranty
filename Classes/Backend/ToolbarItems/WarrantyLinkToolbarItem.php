@@ -54,6 +54,7 @@ class WarrantyLinkToolbarItem implements ToolbarItemInterface
                 'link'  => 'https://gilbertsoft.com/go/typo3/warranty',
                 'title' => 'Gilbertsoft Support',
                 'iconIdentifier'  => 'apps-toolbar-menu-warranty',
+                'iconSize'  => 'small',
             ]);
 
         return $view->render();
@@ -101,17 +102,13 @@ class WarrantyLinkToolbarItem implements ToolbarItemInterface
     {
         $view = GeneralUtility::makeInstance(StandaloneView::class);
         $view->setLayoutRootPaths(['EXT:backend/Resources/Private/Layouts']);
+
         if (\Gilbertsoft\Warranty\Utility\Adapter::isCompatVersion('8.7')) {
             $view->setPartialRootPaths(['EXT:backend/Resources/Private/Partials/ToolbarItems']);
-            $view->assignMultiple([
-                    'iconSize'  => 'default',
-                ]);
         } else {
             $view->setPartialRootPaths(['EXT:gswarranty/Resources/Private/Partials/ToolbarItems']);
-            $view->assignMultiple([
-                    'iconSize'  => 'small',
-                ]);
         }
+
         $view->setTemplateRootPaths(['EXT:gswarranty/Resources/Private/Templates/ToolbarItems']);
         $view->setTemplate($filename);
 
