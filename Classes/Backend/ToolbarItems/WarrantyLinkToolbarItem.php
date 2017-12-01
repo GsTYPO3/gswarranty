@@ -1,4 +1,5 @@
 <?php
+namespace Gilbertsoft\Warranty\Backend\ToolbarItems;
 
 /*
  * This file is part of the "GS Warranty" Extension for TYPO3 CMS.
@@ -21,8 +22,10 @@
  * The TYPO3 project - inspiring people to share!
  */
 
-namespace Gilbertsoft\Warranty\Backend\ToolbarItems;
-
+/**
+ * Use declarations
+ */
+use Gilbertsoft\Lib\Utility\Typo3Version;
 use TYPO3\CMS\Backend\Toolbar\ToolbarItemInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
@@ -103,7 +106,7 @@ class WarrantyLinkToolbarItem implements ToolbarItemInterface
         $view = GeneralUtility::makeInstance(StandaloneView::class);
         $view->setLayoutRootPaths(['EXT:backend/Resources/Private/Layouts']);
 
-        if (\Gilbertsoft\Warranty\Extension\Configurator::isCompatVersion('8.7')) {
+        if (Typo3Version::isCompatVersion('8.7')) {
             $view->setPartialRootPaths(['EXT:backend/Resources/Private/Partials/ToolbarItems']);
         } else {
             $view->setPartialRootPaths(['EXT:gswarranty/Resources/Private/Partials/ToolbarItems']);
