@@ -37,8 +37,8 @@ use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
  *
  * USE:
  * The class is intended to be used without creating an instance of it.
- * So: Do not instantiate - call functions with "\Gilbertsoft\Warranty\Utility\ExtensionConfig::" prefixed the function name.
- * So use \Gilbertsoft\Warranty\Utility\ExtensionConfig::[method-name] to refer to the functions, eg. '\Gilbertsoft\Warranty\Utility\ExtensionConfig::run($_EXTNAME)'
+ * So: Do not instantiate - call functions with "\Gilbertsoft\Warranty\Extension\Configurator::" prefixed the function name.
+ * So use \Gilbertsoft\Warranty\Extension\Configurator::[method-name] to refer to the functions, eg. '\Gilbertsoft\Warranty\Extension\Configurator::localconf($_EXTNAME)'
  */
 class Configurator extends AbstractConfigurator
 {
