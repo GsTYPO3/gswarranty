@@ -29,7 +29,7 @@ $EM_CONF[$_EXTKEY] = [
     'constraints' => [
         'depends' => [
             'typo3' => '7.6.0-8.9.99',
-            'gslib' => '',
+            'gslib' => '0.0.2-0.0.0',
         ],
         'conflicts' => [],
         'suggests' => [
