@@ -103,7 +103,7 @@ class WarrantyLinkToolbarItem implements ToolbarItemInterface
         $view = GeneralUtility::makeInstance(StandaloneView::class);
         $view->setLayoutRootPaths(['EXT:backend/Resources/Private/Layouts']);
 
-        if (\Gilbertsoft\Warranty\Utility\Adapter::isCompatVersion('8.7')) {
+        if (\Gilbertsoft\Warranty\Extension\Configurator::isCompatVersion('8.7')) {
             $view->setPartialRootPaths(['EXT:backend/Resources/Private/Partials/ToolbarItems']);
         } else {
             $view->setPartialRootPaths(['EXT:gswarranty/Resources/Private/Partials/ToolbarItems']);
