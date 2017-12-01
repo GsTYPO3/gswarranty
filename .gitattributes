@@ -8,7 +8,7 @@
 /.travis.yml export-ignore
 /ExtensionBuilder.json export-ignore
 /Configuration/ExtensionBuilder/ export-ignore
-/Resources/ export-ignore
+/Resources/Private/Images/ export-ignore
 /Tests/ export-ignore
 
 # Enforce checkout with linux lf consistent over all plattforms
