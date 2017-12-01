@@ -36,7 +36,7 @@ $EM_CONF[$_EXTKEY] = [
             'bootstrap_package' => '7.0.0-0.0.0',
         ],
     ],
-    'state' => 'alpha',
+    'state' => 'beta',
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
