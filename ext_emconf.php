@@ -24,11 +24,12 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'GS Warranty',
     'description' => 'GS Warranty adapts the TYPO3 backend logos and warranty data and registers a new toolbar item. Feel free to use this extension as base for your own work.',
-    'version' => '8.8.0',
+    'version' => '8.8.1',
     'category' => 'be',
     'constraints' => [
         'depends' => [
-            'typo3' => '7.6.0-8.9.99',
+            'php' => '5.6.0-0.0.0',
+            'typo3' => '6.2.0-8.9.99',
             'gslib' => '0.0.2-0.0.0',
         ],
         'conflicts' => [],
