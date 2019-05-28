@@ -28,13 +28,13 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'be',
     'constraints' => [
         'depends' => [
-            'php' => '5.6.0-0.0.0',
-            'typo3' => '6.2.0-8.9.99',
-            'gslib' => '0.0.5-0.0.0',
+            'php' => '7.1.99-7.2.99',
+            'typo3' => '8.7.0-9.5.99',
+            'gslib' => '0.0.9-0.0.0',
         ],
         'conflicts' => [],
         'suggests' => [
-            'bootstrap_package' => '7.0.0-0.0.0',
+            'bootstrap_package' => '9.0.0-0.0.0',
         ],
     ],
     'state' => 'beta',
