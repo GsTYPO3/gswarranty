@@ -28,9 +28,10 @@ namespace Gilbertsoft\Warranty\Extension;
 use Gilbertsoft\Lib\Extension\AbstractConfigurator;
 use Gilbertsoft\Lib\Utility\Typo3Mode;
 use Gilbertsoft\Lib\Utility\Typo3Provider;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * GS Warranty adapter class.
@@ -62,31 +63,26 @@ class Configurator extends AbstractConfigurator
      */
     protected static function adaptLogos($extKey)
     {
-        // Configure TBE_STYLES (TYPO3 = 7.6)
-        if (self::isVersion('7.6')) {
-            $GLOBALS['TBE_STYLES']['logo'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey) . 'Resources/Public/Images/Backend/gilbertsoft-t3-topbar@2x.png';
-        }
+        // Create Extension Configuration
+        $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
 
-        // Configure Backend Extension
-        if (!is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'])) {
-            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']);
-        }
+        // Retrieve whole configuration
+        $backendConfiguration = $extensionConfiguration->get('backend');
 
         // Login Logo (TYPO3 >= 7.6)
         if (self::isCompatVersion('7.6')) {
-            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['loginLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-login.png';
-            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['loginHighlightColor'] = '#004A99';
-            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['loginBackgroundImage'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-background.jpg';
+            $backendConfiguration['loginLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-login.png';
+            $backendConfiguration['loginHighlightColor'] = '#004A99';
+            $backendConfiguration['loginBackgroundImage'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-background.jpg';
         }
 
         // Backend Logo (TYPO3 >= 8.7)
         if (self::isCompatVersion('8.7')) {
-            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']['backendLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-topbar@2x.png';
+            $backendConfiguration['backendLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-topbar@2x.png';
         }
 
-        if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'])) {
-            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']);
-        }
+        // Save configuration
+        $extensionConfiguration->set('backend', '', $backendConfiguration);
     }
 
     protected static function registerToolbarItems($extKey)
