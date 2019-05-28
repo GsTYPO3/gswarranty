@@ -9,9 +9,8 @@
 		"issues": "https://github.com/gilbertsoft/typo3-gswarranty/issues"
 	},
 	"require": {
-		"typo3/cms-core": "^7.6.0 || ^8.7.0",
-		"typo3/cms-backend": "^7.6.0 || ^8.7.0",
-		"typo3/cms-t3skin": "^7.6.0 || ^8.7.0"
+		"typo3/cms-core": "^8.7 || ^9.5",
+		"gilbertsoft/typo3-gslib": "*"
 	},
 	"autoload": {
 		"psr-4": {
@@ -21,5 +20,13 @@
 	"replace": {
 		"gswarranty": "self.version",
 		"typo3-ter/gswarranty": "self.version"
+	},
+	"extra": {
+		"typo3/cms": {
+			"Package": {
+				"partOfFactoryDefault": true
+			},
+			"extension-key": "gswarranty"
+		}
 	}
 }

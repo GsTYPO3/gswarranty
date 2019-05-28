@@ -1,6 +1,6 @@
 <?php
 defined('TYPO3_MODE') || die('Access denied.');
 
-if (TYPO3_MODE === 'BE') {
-    \Gilbertsoft\Warranty\Utility\Adapter::tables($_EXTKEY);
+if (class_exists('Gilbertsoft\Warranty\Extension\Configurator')) {
+    \Gilbertsoft\Warranty\Extension\Configurator::tables($_EXTKEY);
 }
