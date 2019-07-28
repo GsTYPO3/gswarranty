@@ -28,7 +28,6 @@ namespace Gilbertsoft\Warranty\Extension;
 use Gilbertsoft\Lib\Extension\AbstractConfigurator;
 use Gilbertsoft\Lib\Utility\Typo3Mode;
 use Gilbertsoft\Lib\Utility\Typo3Provider;
-use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -63,11 +62,18 @@ class Configurator extends AbstractConfigurator
      */
     protected static function adaptLogos($extKey)
     {
-        // Create Extension Configuration
-        $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
-
-        // Retrieve whole configuration
-        $backendConfiguration = $extensionConfiguration->get('backend');
+        // Get backend configuration
+        if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+            try {
+                $extensionConfiguration = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class);
+                $backendConfiguration = $extensionConfiguration->get('backend');
+            } catch (\TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException $e) {
+                $backendConfiguration = [];
+            }
+        } else {
+            $backendConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']);
+            $backendConfiguration = $backendConfiguration ?? [];
+        }
 
         // Login Logo (TYPO3 >= 7.6)
         if (self::isCompatVersion('7.6')) {
@@ -81,8 +87,15 @@ class Configurator extends AbstractConfigurator
             $backendConfiguration['backendLogo'] = 'EXT:' . $extKey . '/Resources/Public/Images/Backend/gilbertsoft-t3-topbar@2x.png';
         }
 
-        // Save configuration
-        $extensionConfiguration->set('backend', '', $backendConfiguration);
+        // Save backend configuration
+        if (class_exists('TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
+            try {
+                $extensionConfiguration->set('backend', '', $backendConfiguration);
+            } catch (\TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException $e) {
+            }
+        } else {
+            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']);
+        }
     }
 
     protected static function registerToolbarItems($extKey)
