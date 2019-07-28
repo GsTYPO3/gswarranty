@@ -71,7 +71,11 @@ class Configurator extends AbstractConfigurator
                 $backendConfiguration = [];
             }
         } else {
-            $backendConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']);
+            if (!is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'])) {
+                $backendConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']);
+            } else {
+                $backendConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'];
+            }
             $backendConfiguration = $backendConfiguration ?? [];
         }
 
@@ -94,7 +98,7 @@ class Configurator extends AbstractConfigurator
             } catch (\TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException $e) {
             }
         } else {
-            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend']);
+            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['backend'] = serialize($backendConfiguration);
         }
     }
 
